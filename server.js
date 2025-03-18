@@ -8,6 +8,7 @@ const app = express();
 
 // IMPORTATIONS DES ROUTES
 const userRouter = require("./router/user.router");
+const articleRouter = require("./router/article.router");
 
 // PORT
 const PORT = ENV.PORT || 8085;
@@ -17,6 +18,7 @@ app.use(express.json());
 
 // PREFIX
 app.use("/api/user", userRouter);
+app.use("/api/article", articleRouter);
 
 // MIDDLEWARE DE GESTION D'ERREURS
 app.use((err, req, res, next) => {
