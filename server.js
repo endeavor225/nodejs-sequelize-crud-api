@@ -2,7 +2,7 @@ console.log("🚀 Démarrage du serveur...");
 
 const express = require("express");
 const ENV = require("./config");
-const db = require("./config/db");
+const { db } = require("./models");
 
 const app = express();
 
