@@ -3,22 +3,28 @@ console.log("🚀 Démarrage du serveur...");
 const express = require("express");
 const ENV = require("./config");
 const { db } = require("./models");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 
 // IMPORTATIONS DES ROUTES
 const userRouter = require("./router/user.router");
 const articleRouter = require("./router/article.router");
+const avisRouter = require("./router/avis.router");
 
 // PORT
 const PORT = ENV.PORT || 8085;
 
 // MIDDLEWARE
 app.use(express.json());
+app.use(cors());
+app.use(cookieParser());
 
 // PREFIX
 app.use("/api/user", userRouter);
 app.use("/api/article", articleRouter);
+app.use("/api/avis", avisRouter);
 
 // MIDDLEWARE DE GESTION D'ERREURS
 app.use((err, req, res, next) => {
