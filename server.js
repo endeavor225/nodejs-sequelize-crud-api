@@ -1,12 +1,38 @@
 console.log("🚀 Démarrage du serveur...");
 
 const express = require("express");
+const swaggerJsdoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
 const ENV = require("./config");
 const { db } = require("./models");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
 const app = express();
+
+// Configuration Swagger
+const swaggerOptions = {
+  definition: {
+    openapi: "3.0.0", // Version de Swagger
+    info: {
+      title: "API de gestion d'articles et d'avis", // Titre de l'API
+      version: "1.0.0",
+      description:
+        "Cette API permet de gérer des articles, des avis et des utilisateurs.",
+    },
+    servers: [
+      {
+        url: `http://localhost:${ENV.PORT || 8085}`, // URL du serveur
+      },
+    ],
+  },
+  apis: ["./router/*.js"], // Chemin vers vos fichiers de routes pour générer la doc à partir des commentaires
+};
+
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
+
+// Serveur Swagger UI
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // IMPORTATIONS DES ROUTES
 const userRouter = require("./router/user.router");

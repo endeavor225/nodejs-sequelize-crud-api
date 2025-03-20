@@ -7,6 +7,7 @@ Une API REST avec **Node.js, Express, Sequelize et MySQL**, intégrant :
 - 🎯 **Gestion des erreurs avec un middleware global**
 - 🌍 **CORS activé** dans `server.js` pour gérer les requêtes cross-origin
 - 🛠 **Test des endpoints avec Postman**
+- 📂 **Documentation des API avec swagger** Swagger avec swagger-jsdoc et swagger-ui-express
 
 ## 📌 Installation et Configuration
 
