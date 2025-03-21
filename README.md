@@ -14,7 +14,7 @@ Une API REST avec **Node.js, Express, Sequelize et MySQL**, intégrant :
 ### 1️⃣ Cloner le projet
 
 ```bash
-git clone git@github.com:ProFrancis/nodejs-sequelize-crud-api.git
+git clone https://github.com/endeavor225/nodejs-sequelize-crud-api.git
 cd nodejs-sequelize-crud-api
 npm install
 npm start
